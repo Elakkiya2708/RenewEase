@@ -337,11 +337,12 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
                 </div>
 
                 {/* OR Separator */}
-                <div className="relative flex items-center justify-center my-2">
-                  <div className="border-t border-slate-200 dark:border-slate-800 w-full" />
-                  <span className="bg-white dark:bg-[#0c1829] px-2.5 text-[10px] font-semibold text-slate-400 uppercase tracking-widest relative z-10">
+                <div className="flex items-center my-2.5">
+                  <div className="flex-1 border-t border-slate-200 dark:border-slate-800" />
+                  <span className="px-3 text-[10px] font-semibold text-slate-400 uppercase tracking-widest shrink-0">
                     OR
                   </span>
+                  <div className="flex-1 border-t border-slate-200 dark:border-slate-800" />
                 </div>
 
                 {/* Continue with Google */}
