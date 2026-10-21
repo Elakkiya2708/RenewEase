@@ -191,9 +191,9 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 </div>
 
                 {/* OR Separator */}
-                <div className="flex items-center my-2.5">
+                <div className="w-full flex items-center justify-center my-2.5">
                   <div className="flex-1 border-t border-slate-200 dark:border-slate-800" />
-                  <span className="px-3 text-[10px] font-semibold text-slate-400 uppercase tracking-widest shrink-0">
+                  <span className="px-3 text-[10px] font-semibold text-slate-400 uppercase tracking-widest text-center shrink-0">
                     OR
                   </span>
                   <div className="flex-1 border-t border-slate-200 dark:border-slate-800" />
