@@ -318,12 +318,13 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
                     <stop offset="95%" stopColor="#1e3a8a" stopOpacity={0.05}/>
                   </linearGradient>
                 </defs>
-                <XAxis dataKey="month" stroke="#94a3b8" fontSize={11} tickLine={false} />
+                <XAxis dataKey="month" stroke="#94a3b8" fontSize={11} tickLine={false} style={{ fontFamily: '"Times New Roman", Times, serif' }} />
                 <YAxis
                   stroke="#94a3b8"
                   fontSize={11}
                   tickLine={false}
                   axisLine={false}
+                  style={{ fontFamily: '"Times New Roman", Times, serif' }}
                   tickFormatter={val => `$${val >= 1000 ? `${(val / 1000).toFixed(0)}k` : val}`}
                 />
                 <Tooltip
@@ -333,7 +334,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
                     borderColor: '#1e293b',
                     color: '#ffffff',
                     borderRadius: '8px',
-                    fontFamily: 'Times New Roman'
+                    fontFamily: '"Times New Roman", Times, serif'
                   }}
                 />
                 <Area
@@ -384,7 +385,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
                     borderColor: '#1e293b',
                     color: '#ffffff',
                     borderRadius: '8px',
-                    fontFamily: 'Times New Roman'
+                    fontFamily: '"Times New Roman", Times, serif'
                   }}
                 />
               </PieChart>

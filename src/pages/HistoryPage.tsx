@@ -198,7 +198,7 @@ export const HistoryPage: React.FC = () => {
                         </span>
                       </td>
 
-                      <td className="py-4 px-3 font-mono text-xs text-slate-700 dark:text-slate-300 font-bold">
+                      <td className="py-4 px-3 text-xs text-slate-700 dark:text-slate-300 font-bold">
                         {h.invoiceNumber}
                       </td>
 

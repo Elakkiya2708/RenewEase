@@ -1,13 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Times New Roman", Times, serif;
+  --font-serif: "Times New Roman", Times, serif;
+  --font-mono: "Times New Roman", Times, serif;
+}
+
 @layer base {
-  /* Enforce Times New Roman for all elements across the entire application */
-  *, ::before, ::after {
-    font-family: "Times New Roman", Times, Georgia, serif !important;
+  /* Enforce Times New Roman for all elements, pseudo-elements, and controls */
+  *, *::before, *::after {
+    font-family: "Times New Roman", Times, serif !important;
   }
 
   html, body {
-    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -15,13 +21,41 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  button, input, select, textarea, optgroup {
-    font-family: "Times New Roman", Times, Georgia, serif !important;
+  /* Specific HTML elements across the app */
+  h1, h2, h3, h4, h5, h6,
+  p, span, a, label, strong, em, b, i, small,
+  button, input, select, textarea, optgroup, option,
+  table, thead, tbody, tfoot, tr, th, td,
+  div, section, article, nav, header, footer, main, aside,
+  ul, ol, li,
+  svg, svg text, svg tspan {
+    font-family: "Times New Roman", Times, serif !important;
   }
 }
 
+/* Charts and Visualization SVG font enforcement */
+.recharts-wrapper,
+.recharts-surface,
+.recharts-text,
+.recharts-cartesian-axis-tick,
+.recharts-cartesian-axis-tick text,
+.recharts-cartesian-axis-tick-value,
+.recharts-legend-wrapper,
+.recharts-legend-item-text,
+.recharts-tooltip-wrapper,
+.recharts-default-tooltip,
+.recharts-tooltip-item,
+.recharts-tooltip-item-name,
+.recharts-tooltip-item-value,
+.recharts-tooltip-item-unit,
+.recharts-pie-label-text,
+.recharts-pie-sector,
+.recharts-radial-bar-label {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
 :root {
-  --font-serif: "Times New Roman", Times, Georgia, serif;
+  --font-serif: "Times New Roman", Times, serif;
   --bg-app: #f8fafc;
   --bg-card: #ffffff;
   --text-primary: #0f172a;

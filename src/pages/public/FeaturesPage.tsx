@@ -185,7 +185,7 @@ export const FeaturesPage: React.FC<FeaturesPageProps> = ({
                       <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-xs ${f.iconColor}`}>
                         <Icon className="w-6 h-6" />
                       </div>
-                      <span className="text-xs font-bold font-mono tracking-widest text-slate-400 dark:text-slate-500 uppercase">
+                      <span className="text-xs font-bold tracking-widest text-slate-400 dark:text-slate-500 uppercase">
                         Feature {f.number}
                       </span>
                     </div>

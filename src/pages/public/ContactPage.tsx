@@ -171,7 +171,7 @@ export const ContactPage: React.FC = () => {
                     Thank you, <strong>{submittedData.name}</strong>. Your message regarding <em>"{submittedData.subject}"</em> has been verified and persisted.
                   </p>
 
-                  <div className="p-3 rounded-xl bg-white/70 dark:bg-[#070e1b]/70 border border-emerald-200 dark:border-emerald-900 text-xs font-mono space-y-1">
+                  <div className="p-3 rounded-xl bg-white/70 dark:bg-[#070e1b]/70 border border-emerald-200 dark:border-emerald-900 text-xs space-y-1">
                     <div>Reference ID: <span className="font-bold text-emerald-800 dark:text-emerald-300">{submittedData.id}</span></div>
                     <div>Recorded At: {submittedData.timestamp}</div>
                     <div>Storage Status: {submittedData.mode === 'server' ? 'Persisted in Backend Server DB' : 'Encrypted in Local Workspace Storage'}</div>
