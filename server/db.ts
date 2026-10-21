@@ -99,12 +99,23 @@ export interface ReminderNotification {
   simulatedEmailSentAt: string | null;
 }
 
+export interface ContactMessage {
+  id: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  createdAt: string;
+  status: 'new' | 'reviewed';
+}
+
 export interface DatabaseSchema {
   users: User[];
   renewals: Renewal[];
   history: RenewalHistory[];
   documents: DocumentRecord[];
   notifications: ReminderNotification[];
+  contactMessages?: ContactMessage[];
 }
 
 function calculateExpiryStatus(expiryDateStr: string, currentStatus?: string): 'Active' | 'Expiring Soon' | 'Overdue' | 'Renewed' | 'Cancelled' {
@@ -917,6 +928,29 @@ export class Database {
       documents: this.getDocuments(userId),
       notifications: this.getNotifications(userId)
     };
+  }
+
+  // Record public contact inquiry
+  public createContactMessage(msg: { name: string; email: string; subject: string; message: string }): ContactMessage {
+    if (!this.data.contactMessages) {
+      this.data.contactMessages = [];
+    }
+    const newMsg: ContactMessage = {
+      id: `contact_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+      name: msg.name.trim(),
+      email: msg.email.trim().toLowerCase(),
+      subject: msg.subject.trim(),
+      message: msg.message.trim(),
+      createdAt: new Date().toISOString(),
+      status: 'new'
+    };
+    this.data.contactMessages.push(newMsg);
+    this.save();
+    return newMsg;
+  }
+
+  public getContactMessages(): ContactMessage[] {
+    return this.data.contactMessages || [];
   }
 }
 

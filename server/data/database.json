@@ -71,7 +71,7 @@
       "autoRenew": false,
       "startDate": "2025-11-15",
       "expiryDate": "2026-10-20",
-      "status": "Expiring Soon",
+      "status": "Overdue",
       "priority": "Critical",
       "reminders": [
         45,
@@ -472,6 +472,17 @@
       "createdAt": "2026-10-16T04:49:16.774Z",
       "simulatedEmailSent": true,
       "simulatedEmailSentAt": "2026-10-16T04:49:16.774Z"
+    }
+  ],
+  "contactMessages": [
+    {
+      "id": "contact_1792574332694_nf28m",
+      "name": "Dr. Alan Turing",
+      "email": "alan@cambridge.ac.uk",
+      "subject": "Academic Capstone Evaluation",
+      "message": "Comprehensive full-stack architecture with verified contact persistence.",
+      "createdAt": "2026-10-21T09:18:52.694Z",
+      "status": "new"
     }
   ]
 }

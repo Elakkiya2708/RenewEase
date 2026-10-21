@@ -190,5 +190,12 @@ export const api = {
   resetSampleData: () =>
     request<{ message: string }>('/settings/reset-sample', {
       method: 'POST'
+    }),
+
+  // Public Contact Inquiry
+  submitContact: (data: { name: string; email: string; subject: string; message: string }) =>
+    request<{ success: boolean; messageId: string; message: string; inquiry: any }>('/contact', {
+      method: 'POST',
+      body: JSON.stringify(data)
     })
 };

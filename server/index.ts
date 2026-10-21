@@ -8,6 +8,7 @@ import historyRoutes from './routes/history';
 import remindersRoutes from './routes/reminders';
 import analyticsRoutes from './routes/analytics';
 import settingsRoutes from './routes/settings';
+import contactRoutes from './routes/contact';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -39,6 +40,7 @@ app.use('/api/history', historyRoutes);
 app.use('/api/reminders', remindersRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/settings', settingsRoutes);
+app.use('/api/contact', contactRoutes);
 
 app.listen(PORT, () => {
   console.log(`✅ RenewEase Backend Server running on http://localhost:${PORT}`);

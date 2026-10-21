@@ -17,6 +17,14 @@ interface LocalState {
   history: RenewalHistory[];
   documents: DocumentRecord[];
   notifications: ReminderNotification[];
+  contactMessages?: Array<{
+    id: string;
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+    createdAt: string;
+  }>;
 }
 
 function calculateExpiryStatus(expiryDateStr: string, currentStatus?: string): 'Active' | 'Expiring Soon' | 'Overdue' | 'Renewed' | 'Cancelled' {
@@ -781,6 +789,23 @@ class LocalWorkspaceManager {
     this.state.notifications.push(...userNotifs);
 
     this.persist();
+  }
+
+  public saveContactMessage(msg: { name: string; email: string; subject: string; message: string }) {
+    if (!this.state.contactMessages) {
+      this.state.contactMessages = [];
+    }
+    const record = {
+      id: `local_msg_${Date.now()}`,
+      name: msg.name.trim(),
+      email: msg.email.trim(),
+      subject: msg.subject.trim(),
+      message: msg.message.trim(),
+      createdAt: new Date().toISOString()
+    };
+    this.state.contactMessages.push(record);
+    this.persist();
+    return record;
   }
 }
 
