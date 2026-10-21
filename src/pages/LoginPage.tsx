@@ -95,7 +95,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
               {/* Title & Subtitle */}
               <div className="space-y-1 mb-3 sm:mb-4">
-                <h1 className="text-2xl sm:text-[26px] font-bold tracking-tight text-slate-900 dark:text-white font-serif">
+                <h1 className="text-2xl sm:text-[26px] font-bold tracking-tight text-slate-900 dark:text-white">
                   Welcome Back
                 </h1>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
@@ -116,7 +116,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 
                 {/* Email Address */}
                 <div>
-                  <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1 font-serif">
+                  <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1">
                     Email Address
                   </label>
                   <div className="relative">
@@ -134,7 +134,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
                 {/* Password Field */}
                 <div>
-                  <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1 font-serif">
+                  <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1">
                     Password
                   </label>
                   <div className="relative">

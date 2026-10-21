@@ -154,7 +154,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
 
               {/* Title Header */}
               <div className="space-y-1 mb-2.5 sm:mb-3">
-                <h1 className="text-2xl sm:text-[25px] font-bold tracking-tight text-slate-900 dark:text-white font-serif">
+                <h1 className="text-2xl sm:text-[25px] font-bold tracking-tight text-slate-900 dark:text-white">
                   Create an Account
                 </h1>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
@@ -177,7 +177,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                   {/* Full Name */}
                   <div>
-                    <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1 font-serif">
+                    <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1">
                       Full Name <span className="text-rose-500">*</span>
                     </label>
                     <div className="relative">
@@ -195,7 +195,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
 
                   {/* Email Address */}
                   <div>
-                    <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1 font-serif">
+                    <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1">
                       Email Address <span className="text-rose-500">*</span>
                     </label>
                     <div className="relative">
@@ -215,7 +215,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
                 {/* Password & Confirm Password Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                   <div>
-                    <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1 font-serif">
+                    <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1">
                       Password <span className="text-rose-500">*</span>
                     </label>
                     <div className="relative">
@@ -258,7 +258,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
                   </div>
 
                   <div>
-                    <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1 font-serif">
+                    <label className="block font-medium text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mb-1">
                       Confirm Password <span className="text-rose-500">*</span>
                     </label>
                     <div className="relative">

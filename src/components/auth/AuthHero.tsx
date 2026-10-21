@@ -58,7 +58,7 @@ export const AuthHero: React.FC<AuthHeroProps> = ({ compact = true }) => {
         </div>
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-bold tracking-tight text-white leading-tight drop-shadow-xs font-serif">RenewEase</h1>
+            <h1 className="text-xl font-bold tracking-tight text-white leading-tight drop-shadow-xs">RenewEase</h1>
             <span className="text-[9px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-full bg-white/15 text-blue-200 border border-white/20">
               Pro
             </span>
@@ -69,7 +69,7 @@ export const AuthHero: React.FC<AuthHeroProps> = ({ compact = true }) => {
 
       {/* Hero Headline & Subtitle */}
       <div className={`relative z-10 space-y-1.5 animate-fade-in-up ${compact ? 'my-2.5 sm:my-3' : 'my-6 space-y-3'}`} style={{ animationDelay: '100ms' }}>
-        <h2 className={`font-bold text-white tracking-tight leading-[1.2] drop-shadow-sm font-serif ${
+        <h2 className={`font-bold text-white tracking-tight leading-[1.2] drop-shadow-sm ${
           compact ? 'text-xl sm:text-2xl lg:text-[25px]' : 'text-3xl sm:text-4xl lg:text-[42px]'
         }`}>
           Stay Organized.<br />

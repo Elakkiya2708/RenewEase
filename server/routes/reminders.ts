@@ -50,7 +50,7 @@ router.post('/:id/simulate-email', requireAuth, (req: AuthenticatedRequest, res:
     subject: `[RenewEase Alert] Action Required: ${notif.renewalTitle} (${notif.daysRemaining > 0 ? `${notif.daysRemaining} days left` : 'OVERDUE'})`,
     sentAt: notif.simulatedEmailSentAt,
     htmlPreview: `
-      <div style="font-family: 'Times New Roman', Times, serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; background: #ffffff;">
+      <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; background: #ffffff;">
         <div style="background-color: #0a192f; padding: 24px; text-align: center;">
           <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: normal; letter-spacing: 0.5px;">RenewEase</h1>
           <p style="color: #94a3b8; margin: 4px 0 0; font-size: 13px;">Smart Renewal Management System</p>
