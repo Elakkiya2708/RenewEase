@@ -8,7 +8,6 @@ import {
   EyeOff,
   ArrowRight,
   ArrowLeft,
-  Sparkles,
   AlertCircle,
   ShieldCheck,
   Check
@@ -25,8 +24,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 }) => {
   const { login } = useAuth();
 
-  const [email, setEmail] = useState('alex@example.com');
-  const [password, setPassword] = useState('password123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -46,11 +45,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
     }
   };
 
-  const handleDemoFill = () => {
-    setEmail('alex@example.com');
-    setPassword('password123');
-    setErrorMessage('');
-  };
+
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#070e1b] flex flex-col justify-center py-6 sm:py-10 px-4 sm:px-6 lg:px-8 text-slate-900 dark:text-white transition-colors duration-200">
@@ -100,22 +95,9 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
               {/* Title & Subtitle */}
               <div className="space-y-2 mb-6">
-                <div className="flex items-center justify-between">
-                  <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white font-serif">
-                    Welcome Back
-                  </h1>
-
-                  {/* Evaluator Quick-Fill Button */}
-                  <button
-                    type="button"
-                    onClick={handleDemoFill}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-50 dark:bg-blue-950/60 text-blue-900 dark:text-blue-300 border border-blue-200 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900 cursor-pointer transition-all"
-                    title="Populate test credentials for Dr. Julian Vance"
-                  >
-                    <Sparkles className="w-3 h-3 text-blue-600 dark:text-blue-400" />
-                    <span>Auto-Fill Demo</span>
-                  </button>
-                </div>
+                <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white font-serif">
+                  Welcome Back
+                </h1>
                 <p className="text-sm text-slate-500 dark:text-slate-400">
                   Log in to your RenewEase account
                 </p>
@@ -190,7 +172,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
                   <button
                     type="button"
-                    onClick={() => alert('Demo Reset: You can auto-fill pre-configured demo credentials using the "Auto-Fill Demo" button at the top right.')}
+                    onClick={() => alert('Password reset instructions will be sent to your registered email.')}
                     className="text-blue-800 dark:text-blue-400 font-medium hover:underline cursor-pointer"
                   >
                     Forgot password?
@@ -220,7 +202,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 <div>
                   <button
                     type="button"
-                    onClick={handleDemoFill}
+                    onClick={() => alert('Google authentication is disabled. Please sign in with your email and password.')}
                     className="w-full py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/60 bg-white dark:bg-[#0c1829] text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm transition-all cursor-pointer flex items-center justify-center gap-3 shadow-2xs active:scale-[0.99]"
                   >
                     <svg className="w-4 h-4" viewBox="0 0 24 24">

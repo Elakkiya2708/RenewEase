@@ -11,7 +11,6 @@ import {
   AlertCircle,
   Eye,
   EyeOff,
-  Sparkles,
   Phone,
   Briefcase,
   Check,
@@ -105,18 +104,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
     }
   };
 
-  const handleAutoFillEvaluator = () => {
-    const randomSuffix = Math.floor(100 + Math.random() * 900);
-    setName('Dr. Elena Rostova');
-    setEmail(`elena.evaluator${randomSuffix}@apexoperations.io`);
-    setCompany('Apex Global Technology Group');
-    setJobTitle('VP of Enterprise Operations');
-    setPhone('+1 (555) 782-9014');
-    setPassword('RenewEase@2026!');
-    setConfirmPassword('RenewEase@2026!');
-    setAcceptTerms(true);
-    setErrorMessage('');
-  };
+
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#070e1b] flex flex-col justify-center py-6 sm:py-10 px-4 sm:px-6 lg:px-8 text-slate-900 dark:text-white transition-colors duration-200">
@@ -166,21 +154,9 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
 
               {/* Title Header */}
               <div className="space-y-2 mb-5">
-                <div className="flex items-center justify-between">
-                  <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white font-serif">
-                    Create an Account
-                  </h1>
-
-                  <button
-                    type="button"
-                    onClick={handleAutoFillEvaluator}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-50 dark:bg-blue-950/60 text-blue-900 dark:text-blue-300 border border-blue-200 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900 cursor-pointer transition-all"
-                    title="Quickly fill test credentials"
-                  >
-                    <Sparkles className="w-3 h-3 text-blue-600 dark:text-blue-400" />
-                    <span>Auto-Fill Demo</span>
-                  </button>
-                </div>
+                <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white font-serif">
+                  Create an Account
+                </h1>
                 <p className="text-sm text-slate-500 dark:text-slate-400">
                   Sign up for your RenewEase workspace
                 </p>
@@ -369,7 +345,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
                 <div>
                   <button
                     type="button"
-                    onClick={handleAutoFillEvaluator}
+                    onClick={() => alert('Google authentication is disabled. Please register with your email and password.')}
                     className="w-full py-2.5 px-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/60 bg-white dark:bg-[#0c1829] text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm transition-all cursor-pointer flex items-center justify-center gap-3 shadow-2xs active:scale-[0.99]"
                   >
                     <svg className="w-4 h-4" viewBox="0 0 24 24">
