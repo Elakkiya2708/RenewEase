@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { AuthHero } from '../components/auth/AuthHero';
+import { TermsOfServiceModal } from '../components/auth/TermsOfServiceModal';
+import { PrivacyPolicyModal } from '../components/auth/PrivacyPolicyModal';
 import {
   Lock,
   Mail,
@@ -38,7 +40,9 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
   const [company, setCompany] = useState('');
   const [jobTitle, setJobTitle] = useState('');
   const [phone, setPhone] = useState('');
-  const [acceptTerms, setAcceptTerms] = useState(true);
+  const [acceptTerms, setAcceptTerms] = useState(false);
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -305,17 +309,45 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
 
                 {/* Terms Agreement Checkbox */}
                 <div className="pt-0.5">
-                  <label className="flex items-start gap-1.5 cursor-pointer select-none">
+                  <div className="flex items-start gap-2">
                     <input
                       type="checkbox"
+                      id="accept-terms-checkbox"
                       checked={acceptTerms}
                       onChange={e => setAcceptTerms(e.target.checked)}
-                      className="mt-0.5 w-3.5 h-3.5 text-blue-900 rounded border-slate-300 focus:ring-blue-600 cursor-pointer"
+                      className="mt-0.5 w-3.5 h-3.5 text-blue-900 rounded border-slate-300 dark:border-slate-600 focus:ring-blue-600 cursor-pointer accent-blue-900"
                     />
-                    <span className="text-[11px] text-slate-600 dark:text-slate-400 leading-tight">
-                      I agree to the <strong className="text-slate-800 dark:text-slate-200">Terms of Service</strong> & <strong className="text-slate-800 dark:text-slate-200">Privacy Policy</strong>.
-                    </span>
-                  </label>
+                    <label
+                      htmlFor="accept-terms-checkbox"
+                      className="text-[11px] text-slate-600 dark:text-slate-400 leading-tight select-none cursor-pointer"
+                    >
+                      I agree to the{' '}
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setIsTermsModalOpen(true);
+                        }}
+                        className="font-semibold text-blue-800 dark:text-blue-400 hover:text-blue-950 dark:hover:text-blue-300 underline underline-offset-2 cursor-pointer transition-colors"
+                      >
+                        Terms of Service
+                      </button>
+                      {' '}&{' '}
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setIsPrivacyModalOpen(true);
+                        }}
+                        className="font-semibold text-blue-800 dark:text-blue-400 hover:text-blue-950 dark:hover:text-blue-300 underline underline-offset-2 cursor-pointer transition-colors"
+                      >
+                        Privacy Policy
+                      </button>
+                      .
+                    </label>
+                  </div>
                 </div>
 
                 {/* Primary Register Button */}
@@ -365,7 +397,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
               </form>
             </div>
 
-            {/* Bottom Security Footer */}
+              {/* Bottom Security Footer */}
             <div className="pt-2 mt-2 border-t border-slate-100 dark:border-slate-800 text-center text-[11px] text-slate-400 dark:text-slate-500">
               Secure and private. Your data is always protected.
             </div>
@@ -375,6 +407,20 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
         </div>
 
       </div>
+
+      {/* Terms of Service Modal */}
+      <TermsOfServiceModal
+        isOpen={isTermsModalOpen}
+        onClose={() => setIsTermsModalOpen(false)}
+        onAccept={() => setAcceptTerms(true)}
+        isAccepted={acceptTerms}
+      />
+
+      {/* Privacy Policy Modal */}
+      <PrivacyPolicyModal
+        isOpen={isPrivacyModalOpen}
+        onClose={() => setIsPrivacyModalOpen(false)}
+      />
     </div>
   );
 };

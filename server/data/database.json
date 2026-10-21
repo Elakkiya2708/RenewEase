@@ -1,5 +1,33 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "usr_1792583712630_zfpoi",
+      "name": "Elakkiya",
+      "email": "elakkiyaaaaa27@gmail.com",
+      "passwordHash": "$2b$10$1woj7LUyFXqOvk/O9TSoPu4/y03f/hJT1rCje49kOaIx59eYT8Z2S",
+      "company": "Private Workspace",
+      "jobTitle": "Asset Manager",
+      "phone": "",
+      "bio": "Managing contracts, warranties, licenses, and subscriptions with RenewEase.",
+      "avatarUrl": "",
+      "createdAt": "2026-10-21T11:55:12.630Z",
+      "settings": {
+        "currency": "USD",
+        "dateFormat": "MM/DD/YYYY",
+        "defaultLeadDays": [
+          30,
+          15,
+          7,
+          1
+        ],
+        "emailNotifications": true,
+        "weeklyDigest": true,
+        "soundAlerts": false,
+        "autoArchiveExpired": false,
+        "theme": "light"
+      }
+    }
+  ],
   "renewals": [],
   "history": [],
   "documents": [],
