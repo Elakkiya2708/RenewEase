@@ -107,19 +107,19 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
 
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#070e1b] flex flex-col justify-center py-6 sm:py-10 px-4 sm:px-6 lg:px-8 text-slate-900 dark:text-white transition-colors duration-200">
-      <div className="max-w-6xl mx-auto w-full">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#070e1b] flex flex-col justify-center py-4 sm:py-6 px-3 sm:px-6 lg:px-8 text-slate-900 dark:text-white transition-colors duration-200">
+      <div className="max-w-5xl mx-auto w-full">
         
         {/* Split-Screen Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c1829]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c1829]">
           
           {/* Left Hero Panel */}
           <div className="lg:col-span-6 hidden lg:block">
-            <AuthHero />
+            <AuthHero compact={true} />
           </div>
 
           {/* Right Registration Form Panel */}
-          <div className="lg:col-span-6 relative p-8 sm:p-12 lg:p-14 flex flex-col justify-between bg-white dark:bg-[#0c1829] overflow-hidden">
+          <div className="lg:col-span-6 relative p-6 sm:p-8 lg:p-9 flex flex-col justify-between bg-white dark:bg-[#0c1829] overflow-hidden">
             
             {/* Ambient Background Wave */}
             <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-blue-100/50 dark:bg-blue-950/20 blur-3xl pointer-events-none" />
