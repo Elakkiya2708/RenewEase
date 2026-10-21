@@ -54,8 +54,6 @@ router.post('/register', async (req, res: Response): Promise<void> => {
     };
 
     db.createUser(newUser);
-    // Seed new user with realistic sample data for instant exploration
-    db.seedUserSampleData(userId);
 
     const token = jwt.sign(
       { userId: newUser.id, email: newUser.email },

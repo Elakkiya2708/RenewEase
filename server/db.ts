@@ -188,43 +188,13 @@ export class Database {
   }
 
   public createInitialData(): DatabaseSchema {
-    const demoPasswordHash = bcrypt.hashSync('password123', 10);
-    const demoUserId = 'usr_alex_demo_01';
-
-    const demoUser: User = {
-      id: demoUserId,
-      name: 'Dr. Julian Vance',
-      email: 'alex@example.com',
-      passwordHash: demoPasswordHash,
-      company: 'Apex Innovations Global',
-      jobTitle: 'VP of Technology & Infrastructure',
-      phone: '+1 (555) 234-8920',
-      bio: 'Enterprise architect overseeing cloud operations, software compliance, professional licensing, and vendor relations.',
-      avatarUrl: '',
-      createdAt: new Date().toISOString(),
-      settings: {
-        currency: 'USD',
-        dateFormat: 'MM/DD/YYYY',
-        defaultLeadDays: [30, 15, 7, 1],
-        emailNotifications: true,
-        weeklyDigest: true,
-        soundAlerts: false,
-        autoArchiveExpired: false,
-        theme: 'light'
-      }
-    };
-
-    const initialRenewals = this.generateSampleRenewals(demoUserId);
-    const initialHistory = this.generateSampleHistory(demoUserId, initialRenewals);
-    const initialDocs = this.generateSampleDocuments(demoUserId, initialRenewals);
-    const initialNotifications = this.generateSampleNotifications(demoUserId, initialRenewals);
-
     return {
-      users: [demoUser],
-      renewals: initialRenewals,
-      history: initialHistory,
-      documents: initialDocs,
-      notifications: initialNotifications
+      users: [],
+      renewals: [],
+      history: [],
+      documents: [],
+      notifications: [],
+      contactMessages: []
     };
   }
 
@@ -898,16 +868,14 @@ export class Database {
     return notif;
   }
 
-  // Reset user data back to clean realistic sample set
+  // Reset user data back to clean workspace
   public resetUserWorkspace(userId: string): void {
     // Remove existing items for this user
     this.data.renewals = this.data.renewals.filter(r => r.userId !== userId);
     this.data.history = this.data.history.filter(h => h.userId !== userId);
     this.data.documents = this.data.documents.filter(d => d.userId !== userId);
     this.data.notifications = this.data.notifications.filter(n => n.userId !== userId);
-
-    // Re-seed
-    this.seedUserSampleData(userId);
+    this.save();
   }
 
   // Export all user data as standalone JSON

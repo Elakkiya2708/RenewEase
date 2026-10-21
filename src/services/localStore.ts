@@ -481,12 +481,12 @@ function createInitialLocalState(): LocalState {
   ];
 
   return {
-    users: [defaultUser],
-    currentUserId: demoUserId,
-    renewals,
-    history,
-    documents,
-    notifications
+    users: [],
+    currentUserId: null,
+    renewals: [],
+    history: [],
+    documents: [],
+    notifications: []
   };
 }
 
@@ -544,38 +544,6 @@ class LocalWorkspaceManager {
   public createUser(user: User): User {
     this.state.users.push(user);
     this.state.currentUserId = user.id;
-
-    // Seed private workspace items for this user
-    const initial = createInitialLocalState();
-    const userRenewals = initial.renewals.map(r => ({
-      ...r,
-      id: `ren_${user.id}_${Math.random().toString(36).substring(2, 7)}`,
-      userId: user.id
-    }));
-
-    const userHistory = initial.history.map(h => ({
-      ...h,
-      id: `hist_${user.id}_${Math.random().toString(36).substring(2, 7)}`,
-      userId: user.id
-    }));
-
-    const userDocs = initial.documents.map(d => ({
-      ...d,
-      id: `doc_${user.id}_${Math.random().toString(36).substring(2, 7)}`,
-      userId: user.id
-    }));
-
-    const userNotifs = initial.notifications.map(n => ({
-      ...n,
-      id: `notif_${user.id}_${Math.random().toString(36).substring(2, 7)}`,
-      userId: user.id
-    }));
-
-    this.state.renewals.push(...userRenewals);
-    this.state.history.push(...userHistory);
-    this.state.documents.push(...userDocs);
-    this.state.notifications.push(...userNotifs);
-
     this.persist();
     return user;
   }
@@ -772,22 +740,10 @@ class LocalWorkspaceManager {
   }
 
   public resetUserWorkspace(userId: string) {
-    const initial = createInitialLocalState();
     this.state.renewals = this.state.renewals.filter(r => r.userId !== userId);
     this.state.history = this.state.history.filter(h => h.userId !== userId);
     this.state.documents = this.state.documents.filter(d => d.userId !== userId);
     this.state.notifications = this.state.notifications.filter(n => n.userId !== userId);
-
-    const userRenewals = initial.renewals.map(r => ({ ...r, userId }));
-    const userHistory = initial.history.map(h => ({ ...h, userId }));
-    const userDocs = initial.documents.map(d => ({ ...d, userId }));
-    const userNotifs = initial.notifications.map(n => ({ ...n, userId }));
-
-    this.state.renewals.push(...userRenewals);
-    this.state.history.push(...userHistory);
-    this.state.documents.push(...userDocs);
-    this.state.notifications.push(...userNotifs);
-
     this.persist();
   }
 

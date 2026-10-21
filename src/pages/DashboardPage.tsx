@@ -445,63 +445,78 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
-              {upcomingRenewals.map(r => (
-                <tr
-                  key={r.id}
-                  className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors group cursor-pointer"
-                  onClick={() => {
-                    setSelectedRenewalId(r.id);
-                    setCurrentView('renewal-details');
-                  }}
-                >
-                  <td className="py-3.5 pl-2 font-bold text-slate-900 dark:text-white">
-                    <div className="truncate max-w-xs">{r.title}</div>
-                    <div className="text-[11px] text-slate-400 font-normal">{r.accountNumber}</div>
-                  </td>
-                  <td className="py-3.5">
-                    <CategoryBadge category={r.category} />
-                  </td>
-                  <td className="py-3.5 text-slate-700 dark:text-slate-300 font-medium">
-                    {r.vendor}
-                  </td>
-                  <td className="py-3.5">
-                    <div className="font-semibold text-slate-900 dark:text-white">
-                      {formatDate(r.expiryDate)}
-                    </div>
-                    <CountdownBadge daysRemaining={r.days} />
-                  </td>
-                  <td className="py-3.5 font-bold text-slate-900 dark:text-white">
-                    {formatCurrency(r.cost)}
-                    <span className="text-[10px] text-slate-400 font-normal block">{r.billingCycle}</span>
-                  </td>
-                  <td className="py-3.5">
-                    <StatusBadge status={r.status} />
-                  </td>
-                  <td className="py-3.5 text-right pr-2" onClick={e => e.stopPropagation()}>
-                    <div className="flex items-center justify-end gap-2">
-                      <button
-                        onClick={() => onOpenRenewModal(r)}
-                        className="px-2.5 py-1 rounded-md bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 text-xs font-bold border border-emerald-300 dark:border-emerald-800 transition-colors cursor-pointer flex items-center gap-1"
-                        title="Renew Record"
-                      >
-                        <RotateCw className="w-3 h-3" />
-                        <span>Renew</span>
-                      </button>
-
-                      <button
-                        onClick={() => {
-                          setSelectedRenewalId(r.id);
-                          setCurrentView('renewal-details');
-                        }}
-                        className="p-1 rounded-md text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer"
-                        title="View Details"
-                      >
-                        <ChevronRight className="w-4 h-4" />
-                      </button>
-                    </div>
+              {upcomingRenewals.length === 0 ? (
+                <tr>
+                  <td colSpan={7} className="py-8 text-center text-xs text-slate-500 dark:text-slate-400">
+                    No renewal records registered yet. Click{' '}
+                    <button
+                      onClick={onOpenAddModal}
+                      className="font-bold text-blue-900 dark:text-blue-400 hover:underline cursor-pointer"
+                    >
+                      + Add Renewal
+                    </button>{' '}
+                    to start tracking your contracts, licenses, and subscriptions.
                   </td>
                 </tr>
-              ))}
+              ) : (
+                upcomingRenewals.map(r => (
+                  <tr
+                    key={r.id}
+                    className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors group cursor-pointer"
+                    onClick={() => {
+                      setSelectedRenewalId(r.id);
+                      setCurrentView('renewal-details');
+                    }}
+                  >
+                    <td className="py-3.5 pl-2 font-bold text-slate-900 dark:text-white">
+                      <div className="truncate max-w-xs">{r.title}</div>
+                      <div className="text-[11px] text-slate-400 font-normal">{r.accountNumber}</div>
+                    </td>
+                    <td className="py-3.5">
+                      <CategoryBadge category={r.category} />
+                    </td>
+                    <td className="py-3.5 text-slate-700 dark:text-slate-300 font-medium">
+                      {r.vendor}
+                    </td>
+                    <td className="py-3.5">
+                      <div className="font-semibold text-slate-900 dark:text-white">
+                        {formatDate(r.expiryDate)}
+                      </div>
+                      <CountdownBadge daysRemaining={r.days} />
+                    </td>
+                    <td className="py-3.5 font-bold text-slate-900 dark:text-white">
+                      {formatCurrency(r.cost)}
+                      <span className="text-[10px] text-slate-400 font-normal block">{r.billingCycle}</span>
+                    </td>
+                    <td className="py-3.5">
+                      <StatusBadge status={r.status} />
+                    </td>
+                    <td className="py-3.5 text-right pr-2" onClick={e => e.stopPropagation()}>
+                      <div className="flex items-center justify-end gap-2">
+                        <button
+                          onClick={() => onOpenRenewModal(r)}
+                          className="px-2.5 py-1 rounded-md bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 text-xs font-bold border border-emerald-300 dark:border-emerald-800 transition-colors cursor-pointer flex items-center gap-1"
+                          title="Renew Record"
+                        >
+                          <RotateCw className="w-3 h-3" />
+                          <span>Renew</span>
+                        </button>
+
+                        <button
+                          onClick={() => {
+                            setSelectedRenewalId(r.id);
+                            setCurrentView('renewal-details');
+                          }}
+                          className="p-1 rounded-md text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer"
+                          title="View Details"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

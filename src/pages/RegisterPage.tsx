@@ -310,7 +310,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({
                       className="mt-0.5 w-4 h-4 text-blue-900 rounded border-slate-300 focus:ring-blue-600 cursor-pointer"
                     />
                     <span className="text-[11px] text-slate-600 dark:text-slate-400 leading-normal">
-                      I agree to the <strong className="text-slate-800 dark:text-slate-200">Terms of Service</strong> & <strong className="text-slate-800 dark:text-slate-200">Privacy Policy</strong>, including automatic pre-seeding of sample records for exploration.
+                      I agree to the <strong className="text-slate-800 dark:text-slate-200">Terms of Service</strong> & <strong className="text-slate-800 dark:text-slate-200">Privacy Policy</strong>.
                     </span>
                   </label>
                 </div>
